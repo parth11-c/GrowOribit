@@ -18,11 +18,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       primary:
         "bg-[#ff0006] text-white border border-white/10 shadow-lg shadow-[rgba(255,0,6,0.22)] hover:shadow-xl hover:shadow-[rgba(255,0,6,0.3)] hover:brightness-[1.03]",
       secondary:
-        "bg-white/90 text-foreground border border-border shadow-sm hover:bg-white hover:border-primary/15",
+        "bg-white/[0.08] text-white border border-white/[0.12] shadow-sm hover:bg-white/[0.14] hover:border-[#ff0006]/15 backdrop-blur-sm",
       ghost:
-        "text-muted hover:text-foreground hover:bg-surface",
+        "text-white/60 hover:text-white hover:bg-white/[0.06]",
       outline:
-        "border border-border text-foreground hover:border-primary/50 hover:bg-surface",
+        "border border-white/[0.12] text-white/80 hover:border-[#ff0006]/50 hover:bg-white/[0.06] backdrop-blur-sm",
     };
 
     const sizes = {

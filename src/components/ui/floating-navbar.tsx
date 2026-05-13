@@ -6,83 +6,178 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "motion/react";
+import { Search, User, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const FloatingNav = ({
   navItems,
+  logo,
   className,
 }: {
   navItems: {
     name: string;
     link: string;
-    icon?: JSX.Element;
+    icon?: React.ReactNode;
   }[];
+  logo?: {
+    name: string;
+    href: string;
+  };
   className?: string;
 }) => {
   const { scrollYProgress } = useScroll();
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     if (typeof current === "number") {
       const direction = current - scrollYProgress.getPrevious()!;
-
       if (scrollYProgress.get() < 0.05) {
-        setVisible(false);
+        setVisible(true);
       } else {
-        if (direction < 0) {
-          setVisible(true);
-        } else {
-          setVisible(false);
-        }
+        setVisible(direction < 0);
       }
     }
   });
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div
-        initial={{
-          opacity: 1,
-          y: -100,
-        }}
+      <motion.header
+        initial={{ opacity: 1, y: 0 }}
         animate={{
-          y: visible ? 0 : -100,
+          y: visible ? 0 : -120,
           opacity: visible ? 1 : 0,
         }}
         transition={{
-          duration: 0.2,
+          duration: 0.35,
+          ease: [0.25, 0.46, 0.45, 0.94],
         }}
         className={cn(
-          "flex max-w-fit fixed top-10 inset-x-0 mx-auto z-[5000] items-center justify-center",
+          "fixed inset-x-0 top-0 z-[5000]",
           className
         )}
       >
-        <div className="flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/80 px-2 py-1.5 shadow-lg shadow-black/10 backdrop-blur-md dark:border-white/10 dark:bg-black/50">
-          {/* Nav items container */}
-          <div className="flex items-center gap-1">
-            {navItems.map((navItem, idx: number) => (
+        {/* Gradient accent line */}
+        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#ff0006] to-transparent" />
+
+        {/* Main bar */}
+        <div className="bg-[#0a0809]/90 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-8">
+            <div className="flex items-center justify-between lg:justify-start py-4 lg:py-5">
+
+              {/* Logo */}
               <a
-                key={`link-${idx}`}
-                href={navItem.link}
-                className={cn(
-                  "relative flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-white/10 dark:hover:text-white"
-                )}
+                href={logo?.href || "/"}
+                className="flex-shrink-0 text-xl font-bold tracking-tight transition-colors hover:opacity-90 lg:mr-10"
               >
-                <span className="block sm:hidden">{navItem.icon}</span>
-                <span className="hidden sm:block">{navItem.name}</span>
+                <span className="text-white">
+                  {logo?.name ? (
+                    <>
+                      {logo.name.slice(0, 4)}
+                      <span className="gradient-text">{logo.name.slice(4)}</span>
+                    </>
+                  ) : (
+                    <>
+                      Grow<span className="gradient-text">Orbit</span>
+                    </>
+                  )}
+                </span>
               </a>
-            ))}
+
+              {/* Nav Links — centered */}
+              <div className="hidden flex-1 items-center justify-center lg:flex">
+                <nav className="flex items-center gap-1">
+                  {navItems.map((item, idx) => (
+                    <a
+                      key={`link-${idx}`}
+                      href={item.link}
+                      className="group relative rounded-lg px-4 py-2 text-sm font-semibold uppercase tracking-[0.1em] text-white/70 transition-all duration-200 hover:text-white hover:bg-white/[0.04]"
+                    >
+                      {item.name}
+                      {/* Animated red underline */}
+                      <span className="absolute bottom-0.5 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-gradient-to-r from-[#ff0006] to-[#ff3d4a] transition-all duration-300 group-hover:w-3/4 rounded-full" />
+                    </a>
+                  ))}
+                </nav>
+              </div>
+
+              {/* Right icons */}
+              <div className="flex flex-shrink-0 items-center gap-2">
+                <button
+                  className="hidden rounded-lg p-2 text-white/50 transition-all duration-200 hover:text-white hover:bg-white/[0.04] lg:inline-flex"
+                  aria-label="Search"
+                >
+                  <Search className="h-5 w-5" />
+                </button>
+                <button
+                  className="hidden rounded-lg p-2 text-white/50 transition-all duration-200 hover:text-white hover:bg-white/[0.04] lg:inline-flex"
+                  aria-label="Account"
+                >
+                  <User className="h-5 w-5" />
+                </button>
+
+                {/* Mobile Toggle */}
+                <button
+                  onClick={() => setMobileOpen(!mobileOpen)}
+                  className="inline-flex items-center justify-center rounded-lg p-2 text-white/50 transition-all duration-200 hover:text-white hover:bg-white/[0.04] lg:hidden"
+                  aria-label="Toggle menu"
+                >
+                  {mobileOpen ? (
+                    <X className="h-5 w-5" />
+                  ) : (
+                    <Menu className="h-5 w-5" />
+                  )}
+                </button>
+              </div>
+            </div>
           </div>
-
-          {/* Divider */}
-          <div className="h-5 w-px bg-neutral-200 dark:bg-white/10" />
-
-          {/* CTA Button */}
-          <button className="relative rounded-full bg-neutral-900 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-neutral-800 hover:shadow-lg hover:shadow-neutral-900/20 dark:bg-white dark:text-black dark:hover:bg-neutral-100 dark:hover:shadow-white/20">
-            <span>Login</span>
-          </button>
         </div>
-      </motion.div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2 }}
+              className="border-b border-white/[0.06] bg-[#0a0809]/95 backdrop-blur-2xl lg:hidden"
+            >
+              <div className="mx-auto max-w-[1400px] px-6 py-4">
+                <div className="flex flex-col gap-1">
+                  {navItems.map((item, idx) => (
+                    <a
+                      key={`mobile-${idx}`}
+                      href={item.link}
+                      onClick={() => setMobileOpen(false)}
+                      className="rounded-lg px-4 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-white/70 transition-all duration-200 hover:text-white hover:bg-white/[0.04]"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                  <div className="my-2 h-px bg-white/[0.06]" />
+                  <a
+                    href="#"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center gap-2 rounded-lg px-4 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-white/70 transition-all duration-200 hover:text-white hover:bg-white/[0.04]"
+                  >
+                    <Search className="h-4 w-4" />
+                    Search
+                  </a>
+                  <a
+                    href="#"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center gap-2 rounded-lg px-4 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-white/70 transition-all duration-200 hover:text-white hover:bg-white/[0.04]"
+                  >
+                    <User className="h-4 w-4" />
+                    Account
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.header>
     </AnimatePresence>
   );
 };

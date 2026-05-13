@@ -1,11 +1,8 @@
 "use client";
 
-import React, { useId } from "react";
+import { useId } from "react";
 import Link from "next/link";
-import { ClerkAuthStrip } from "@/components/clerk-auth-strip";
 import { ContainerScroll } from "@/components/ui/container-scroll";
-import { VerticalTabs } from "@/components/vertical-tabs";
-import { Footer } from "@/components/footer";
 
 const heroShadow =
   "1px 1px 0 rgba(80,0,10,0.85), 2px 2px 0 rgba(80,0,10,0.82), 3px 3px 0 rgba(80,0,10,0.78), 4px 4px 0 rgba(80,0,10,0.74), 5px 5px 0 rgba(80,0,10,0.7), 6px 6px 0 rgba(80,0,10,0.66), 7px 7px 0 rgba(80,0,10,0.62), 8px 8px 0 rgba(80,0,10,0.58), 9px 9px 0 rgba(80,0,10,0.54), 10px 10px 0 rgba(80,0,10,0.5), 11px 11px 0 rgba(80,0,10,0.46), 12px 12px 0 rgba(80,0,10,0.42), 13px 13px 0 rgba(80,0,10,0.38), 14px 14px 0 rgba(80,0,10,0.34)";
@@ -56,7 +53,7 @@ function CircularBadge({ pathId }: { pathId: string }) {
             fill="white"
           >
             <textPath href={`#${pathId}`} startOffset="0%">
-            Digital Growth, Done Right.  •{" "}
+            Digital Growth Done Right{" "}
             </textPath>
           </text>
         </svg>
@@ -90,17 +87,16 @@ export default function OrbitLanding() {
         aria-hidden
       />
 
-      <ClerkAuthStrip variant="dark" />
-
-      <main className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col items-center justify-center px-4 pb-32 pt-12 md:pb-48 md:pt-16">
+      <main className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col items-center justify-center px-4 pb-32 pt-40 md:pb-48 md:pt-48">
         <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center justify-center text-center">
           <div className="flex w-full flex-col items-center space-y-2 md:space-y-4">
             <div className="flex w-full justify-center">
               <h1
-                className="m-0 p-0 text-[clamp(4.5rem,12vw,160px)] font-black uppercase leading-[0.85] tracking-tighter text-primary"
+                className="m-3 p-10 text-[clamp(4.5rem,12vw,160px)] font-black uppercase leading-[0.85] tracking-tighter text-primary"
                 style={{
                   fontFamily: '"Arial Black", Impact, system-ui, sans-serif',
                   textShadow: heroShadow,
+                  marginTop: 100
                 }}
               >
                 We

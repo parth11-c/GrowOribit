@@ -42,12 +42,12 @@ export function SectionHeader({
           {badge}
         </span>
       )}
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-white">
         {title}{" "}
         {titleGradient && <span className="gradient-text">{titleGradient}</span>}
       </h2>
       {description && (
-        <p className="mt-5 text-lg text-muted leading-relaxed">{description}</p>
+        <p className="mt-5 text-lg text-white/50 leading-relaxed">{description}</p>
       )}
     </div>
   );
