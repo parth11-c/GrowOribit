@@ -4,6 +4,8 @@ import React, { useId } from "react";
 import Link from "next/link";
 import { ClerkAuthStrip } from "@/components/clerk-auth-strip";
 import { ContainerScroll } from "@/components/ui/container-scroll";
+import { VerticalTabs } from "@/components/vertical-tabs";
+import { Footer } from "@/components/footer";
 
 const heroShadow =
   "1px 1px 0 rgba(80,0,10,0.85), 2px 2px 0 rgba(80,0,10,0.82), 3px 3px 0 rgba(80,0,10,0.78), 4px 4px 0 rgba(80,0,10,0.74), 5px 5px 0 rgba(80,0,10,0.7), 6px 6px 0 rgba(80,0,10,0.66), 7px 7px 0 rgba(80,0,10,0.62), 8px 8px 0 rgba(80,0,10,0.58), 9px 9px 0 rgba(80,0,10,0.54), 10px 10px 0 rgba(80,0,10,0.5), 11px 11px 0 rgba(80,0,10,0.46), 12px 12px 0 rgba(80,0,10,0.42), 13px 13px 0 rgba(80,0,10,0.38), 14px 14px 0 rgba(80,0,10,0.34)";
@@ -54,7 +56,7 @@ function CircularBadge({ pathId }: { pathId: string }) {
             fill="white"
           >
             <textPath href={`#${pathId}`} startOffset="0%">
-            Digital Growth, Done Right •{" "}
+            Digital Growth, Done Right.  •{" "}
             </textPath>
           </text>
         </svg>
@@ -146,61 +148,17 @@ export default function OrbitLanding() {
         </div>
       </main>
 
+
       <section className="relative z-10 flex w-full justify-center">
-        <ContainerScroll
-        titleComponent={
-          <div className="mb-6 w-full px-2 text-center sm:px-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-              Inside the orbit
-            </p>
-            <h2 className="mt-3 text-balance text-3xl font-black tracking-tight text-white md:text-4xl lg:text-5xl">
-              One dashboard for{" "}
-              <span className="text-primary">growth metrics</span>
-            </h2>
-          
-          </div>
-        }
-      >
-        <div className="flex h-full w-full flex-col items-center gap-4 p-4 md:p-6">
-          <div className="flex w-full max-w-3xl items-center justify-between border-b border-black/10 pb-4">
-            <div className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-primary" />
-              <span className="text-sm font-bold text-foreground">GrowOrbit</span>
-              <span className="hidden text-xs text-muted sm:inline">/ Overview</span>
-            </div>
-            <span className="shrink-0 rounded-full bg-blush-deep px-3 py-1 text-xs font-semibold text-foreground ring-1 ring-primary/15">
-              Live
-            </span>
-          </div>
-          <div className="grid w-full max-w-3xl flex-1 grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
-            {[
-              { label: "Qualified leads", value: "+142%", sub: "vs last quarter" },
-              { label: "Page speed", value: "98", sub: "Lighthouse" },
-              { label: "ROAS", value: "4.2×", sub: "blended" },
-              { label: "Retention", value: "94%", sub: "clients" },
-              { label: "Ship velocity", value: "2.1 wk", sub: "avg sprint" },
-              { label: "NPS", value: "72", sub: "post-launch" },
-            ].map((k) => (
-              <div
-                key={k.label}
-                className="rounded-2xl border border-black/[0.06] bg-white p-4 text-center shadow-sm"
-              >
-                <p className="text-[10px] font-semibold uppercase tracking-wide text-muted md:text-xs">
-                  {k.label}
-                </p>
-                <p className="mt-2 text-2xl font-black text-foreground md:text-3xl">
-                  {k.value}
-                </p>
-                <p className="mt-1 text-[10px] text-muted md:text-xs">{k.sub}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mx-auto mt-auto w-full max-w-3xl rounded-2xl border border-dashed border-primary/25 bg-primary/[0.04] p-4 text-center text-sm text-muted">
-            Placeholder preview — swap for product screenshot or embed.
-          </div>
-        </div>
-      </ContainerScroll>
+        <ContainerScroll titleComponent={<></>}>
+          <img
+            src="/Trade.jpg"
+            alt="Trade"
+            className="h-full w-full object-cover"
+          />
+        </ContainerScroll>
       </section>
+
     </div>
   );
 }
