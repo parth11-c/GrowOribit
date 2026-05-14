@@ -29,10 +29,10 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/80 backdrop-blur-lg",
         isScrolled
-          ? "bg-black/80 backdrop-blur-lg border-b border-white/10"
-          : "bg-transparent"
+          ? "border-b border-white/10"
+          : ""
       )}
     >
       <div className="mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16">

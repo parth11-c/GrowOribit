@@ -65,9 +65,10 @@ export default async function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="min-h-screen">
+      <body className="min-h-screen bg-black">
         <ClerkProvider>
           <Navbar />
+          <div style={{ marginTop: 100 }} />
           {children}
           <Footer />
         </ClerkProvider>

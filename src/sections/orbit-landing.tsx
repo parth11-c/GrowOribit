@@ -1,11 +1,93 @@
 "use client";
 
-import { useId } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { MoveRight, PhoneCall } from "lucide-react";
 import { ContainerScroll } from "@/components/ui/container-scroll";
+import { Button } from "@/components/ui/button";
 
 const heroShadow =
   "1px 1px 0 rgba(80,0,10,0.85), 2px 2px 0 rgba(80,0,10,0.82), 3px 3px 0 rgba(80,0,10,0.78), 4px 4px 0 rgba(80,0,10,0.74), 5px 5px 0 rgba(80,0,10,0.7), 6px 6px 0 rgba(80,0,10,0.66), 7px 7px 0 rgba(80,0,10,0.62), 8px 8px 0 rgba(80,0,10,0.58), 9px 9px 0 rgba(80,0,10,0.54), 10px 10px 0 rgba(80,0,10,0.5), 11px 11px 0 rgba(80,0,10,0.46), 12px 12px 0 rgba(80,0,10,0.42), 13px 13px 0 rgba(80,0,10,0.38), 14px 14px 0 rgba(80,0,10,0.34)";
+
+function HeroCta() {
+  const [titleNumber, setTitleNumber] = useState(0);
+  const titles = useMemo(
+    () => ["amazing", "new", "wonderful", "beautiful", "smart"],
+    []
+  );
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setTitleNumber((n) => (n === titles.length - 1 ? 0 : n + 1));
+    }, 900);
+
+    return () => window.clearInterval(intervalId);
+  }, [titles.length]);
+
+  return (
+    <section className="relative z-10 w-full mt-16 md:mt-24">
+      <div className="mx-auto w-full max-w-[1440px] px-4">
+        <div className="flex flex-col items-center justify-center gap-8 py-12 md:py-16 text-center">
+          <div className="flex flex-col gap-4">
+            <h2 className="text-5xl md:text-7xl font-medium tracking-tighter">
+              <span className="text-white">This is something</span>
+              <span className="relative mx-auto flex h-[1.15em] w-full max-w-2xl justify-center overflow-hidden text-center md:pb-3 md:pt-1">
+                {titles.map((title, index) => (
+                  <motion.span
+                    key={title}
+                    className="absolute font-semibold text-white"
+                    initial={{ opacity: 0, y: -26 }}
+                    transition={{ type: "spring", stiffness: 140, damping: 18, mass: 0.6 }}
+                    animate={
+                      titleNumber === index
+                        ? { y: 0, opacity: 1 }
+                        : { y: titleNumber > index ? -44 : 44, opacity: 0 }
+                    }
+                  >
+                    {title}
+                  </motion.span>
+                ))}
+              </span>
+            </h2>
+
+            <p className="mx-auto max-w-2xl text-base md:text-xl leading-relaxed tracking-tight text-white/55">
+              Managing a small business today is already tough. Avoid further
+              complications by ditching outdated, tedious trade methods. Our goal
+              is to streamline SMB trade, making it easier and faster than ever.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="gap-2 rounded-xl border-white/15 bg-transparent text-white hover:bg-white/5"
+            >
+              <Link href="#contact" aria-label="Book a session">
+                Book a session <PhoneCall className="size-4" />
+              </Link>
+            </Button>
+
+            <Button
+              asChild
+              size="lg"
+              className="gap-2 rounded-xl bg-white text-black hover:bg-white/90"
+            >
+              <Link href="#pricing" aria-label="Purchase a plan">
+                Purchase a plan <MoveRight className="size-4" />
+              </Link>
+            </Button>
+          </div>
+
+          {/* subtle separator */}
+          <div className="mt-2 h-px w-full max-w-3xl bg-white/10" />
+        </div>
+      </div>
+    </section>
+  );
+}
 
 const ArrowAccentLeft = () => (
   <svg
@@ -48,12 +130,9 @@ function CircularBadge({ pathId }: { pathId: string }) {
             d="M 50, 50 m -36, 0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0"
             fill="none"
           />
-          <text
-            className="text-[11px] font-black uppercase tracking-[0.18em]"
-            fill="white"
-          >
+          <text className="text-[11px] font-black uppercase tracking-[0.18em]" fill="white">
             <textPath href={`#${pathId}`} startOffset="0%">
-            Digital Growth Done Right{" "}
+              Digital Growth Done Right{" "}
             </textPath>
           </text>
         </svg>
@@ -96,7 +175,7 @@ export default function OrbitLanding() {
                 style={{
                   fontFamily: '"Arial Black", Impact, system-ui, sans-serif',
                   textShadow: heroShadow,
-                  marginTop: 100
+                  marginTop: 10,
                 }}
               >
                 We
@@ -144,17 +223,13 @@ export default function OrbitLanding() {
         </div>
       </main>
 
+      <HeroCta />
 
       <section className="relative z-10 flex w-full justify-center">
         <ContainerScroll titleComponent={<></>}>
-          <img
-            src="/Trade.jpg"
-            alt="Trade"
-            className="h-full w-full object-cover"
-          />
+          <img src="/Trade.jpg" alt="Trade" className="h-full w-full object-cover" />
         </ContainerScroll>
       </section>
-
     </div>
   );
 }

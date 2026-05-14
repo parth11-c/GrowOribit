@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { ReactNode } from "react";
 import {
   Globe,
   Smartphone,
@@ -12,7 +13,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { SectionWrapper, SectionHeader } from "@/components/ui/section";
-import { StaggerContainer, StaggerItem } from "@/components/motion-wrapper";
 
 interface Service {
   icon: LucideIcon;
@@ -80,6 +80,42 @@ const services: Service[] = [
     shadowColor: "shadow-red-400/20",
   },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0 },
+};
+
+function StaggerContainer({
+  staggerDelay = 0.08,
+  className,
+  children,
+}: {
+  staggerDelay?: number;
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <motion.div
+      initial="hidden"
+      animate="show"
+      variants={containerVariants}
+      transition={{ staggerChildren: staggerDelay }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function StaggerItem({ children }: { children: ReactNode }) {
+  return <motion.div variants={itemVariants}>{children}</motion.div>;
+}
 
 export default function Services() {
   return (

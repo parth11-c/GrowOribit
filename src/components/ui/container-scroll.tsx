@@ -29,17 +29,13 @@ export function ContainerScroll({ titleComponent, children }: ContainerScrollPro
   }, []);
 
   const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 1],
-    isMobile ? [0.7, 0.9] : [1.05, 1]
-  );
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const scale = useTransform(scrollYProgress, [0, 1], isMobile ? [0.85, 0.95] : [1.02, 1]);
+  const translate = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   return (
     <div
       ref={containerRef}
-      className="relative flex min-h-[60rem] w-full flex-col items-center justify-center px-3 py-10 md:min-h-[80rem] md:px-10 md:py-20"
+      className="relative flex min-h-[34rem] w-full flex-col items-center justify-center px-3 py-4 md:min-h-[44rem] md:px-10 md:py-8"
     >
       <div
         className="flex w-full max-w-5xl flex-col items-center justify-center md:max-w-6xl"
@@ -93,9 +89,9 @@ function ScrollCard({
           "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
         transformStyle: "preserve-3d",
       }}
-      className="origin-center mx-auto -mt-12 h-[30rem] w-full max-w-5xl rounded-[30px] border-4 border-white/20 bg-[#1a1214] p-2 shadow-2xl md:h-[40rem] md:max-w-6xl md:p-6"
+      className="origin-center mx-auto -mt-4 h-[22rem] w-full max-w-5xl rounded-[30px] border-4 border-white/20 bg-[#1a1214] p-2 shadow-2xl md:h-[28rem] md:max-w-6xl md:p-4"
     >
-      <div className="mx-auto flex h-full w-full max-w-full flex-col overflow-hidden rounded-2xl bg-[#faf7f8] md:rounded-2xl md:p-4">
+      <div className="mx-auto flex h-full w-full max-w-full flex-col overflow-hidden rounded-2xl bg-[#faf7f8] md:rounded-2xl md:p-3">
         {children}
       </div>
     </motion.div>
