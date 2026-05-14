@@ -315,3 +315,259 @@ body {
     @apply font-sans;
   }
 }
+
+/* ===== Home CTA Buttons (elegant + prominent) ===== */
+
+/* ===== Auth / Login Button (modern + classic) ===== */
+/* Use via `className="go-login-btn"` */
+.go-login-btn {
+  --go-login-bg: rgba(255, 255, 255, 0.06);
+  --go-login-fg: rgba(255, 255, 255, 0.92);
+  --go-login-border: rgba(255, 255, 255, 0.14);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  padding: 0.6rem 1rem;
+  min-height: 2.5rem;
+  border-radius: 999px;
+
+  background: var(--go-login-bg);
+  color: var(--go-login-fg);
+  border: 1px solid var(--go-login-border);
+
+  font-family: ui-sans-serif, system-ui, -apple-system, "SF Pro Text", Inter, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.go-login-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  box-shadow:
+    0 16px 45px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+
+.go-login-btn:active {
+  transform: translateY(0px);
+}
+
+.go-login-btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    0 0 0 4px rgba(255, 0, 6, 0.22),
+    0 0 0 1px rgba(255, 0, 6, 0.55) inset;
+}
+
+.go-login-btn--primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #ff3b49 45%, #ff7a86 100%);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 18px 55px rgba(255, 0, 6, 0.18),
+    0 16px 45px rgba(0, 0, 0, 0.45);
+}
+
+.go-login-btn--primary:hover {
+  filter: saturate(1.05);
+}
+
+/* ===== GrowOrbit Premium Button (provided CSS) ===== */
+/* Usage:
+  <button className="go-button"><span className="go-button-outer"><span className="go-button-inner"><span>Label</span></span></span></button>
+*/
+.go-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.go-button::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: calc(100% + 0.3em);
+  height: calc(100% + 0.3em);
+  top: -0.15em;
+  left: -0.15em;
+  border-radius: inherit;
+  background: linear-gradient(
+    -135deg,
+    rgba(5, 5, 5, 0.5),
+    transparent 20%,
+    transparent 100%
+  );
+  filter: blur(0.0125em);
+  opacity: 0.25;
+  mix-blend-mode: multiply;
+}
+
+.go-button .go-button-outer,
+.go-button .go-button-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.go-button .go-button-outer {
+  position: relative;
+  z-index: 1;
+  border-radius: inherit;
+  transition: box-shadow 300ms ease;
+  will-change: box-shadow;
+  box-shadow:
+    0 0.05em 0.05em -0.01em rgba(5, 5, 5, 1),
+    0 0.01em 0.01em -0.01em rgba(5, 5, 5, 0.5),
+    0.15em 0.3em 0.1em -0.01em rgba(5, 5, 5, 0.25);
+}
+
+.go-button:hover .go-button-outer {
+  box-shadow:
+    0 0 0 0 rgba(5, 5, 5, 1),
+    0 0 0 0 rgba(5, 5, 5, 0.5),
+    0 0 0 0 rgba(5, 5, 5, 0.25);
+}
+
+.go-button .go-button-inner {
+  --inset: 0.035em;
+  position: relative;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 0.7em 1.2em;
+  background-image: linear-gradient(
+    135deg,
+    rgba(230, 230, 230, 1),
+    rgba(180, 180, 180, 1)
+  );
+  transition:
+    box-shadow 300ms ease,
+    clip-path 250ms ease,
+    background-image 250ms ease,
+    transform 250ms ease;
+  will-change: box-shadow, clip-path, background-image, transform;
+  overflow: clip;
+  clip-path: inset(0 0 0 0 round 100em);
+  box-shadow:
+    0 0 0 0 inset rgba(5, 5, 5, 0.1),
+    -0.05em -0.05em 0.05em 0 inset rgba(5, 5, 5, 0.25),
+    0 0 0 0 inset rgba(5, 5, 5, 0.1),
+    0 0 0.05em 0.2em inset rgba(255, 255, 255, 0.25),
+    0.025em 0.05em 0.1em 0 inset rgba(255, 255, 255, 1),
+    0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
+    -0.075em -0.25em 0.25em 0.1em inset rgba(5, 5, 5, 0.25);
+}
+
+.go-button:hover .go-button-inner {
+  clip-path: inset(
+    clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px)
+      clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) round 100em
+  );
+  box-shadow:
+    0.1em 0.15em 0.05em 0 inset rgba(5, 5, 5, 0.75),
+    -0.025em -0.03em 0.05em 0.025em inset rgba(5, 5, 5, 0.5),
+    0.25em 0.25em 0.2em 0 inset rgba(5, 5, 5, 0.5),
+    0 0 0.05em 0.5em inset rgba(255, 255, 255, 0.15),
+    0 0 0 0 inset rgba(255, 255, 255, 1),
+    0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
+    -0.075em -0.12em 0.2em 0.1em inset rgba(5, 5, 5, 0.25);
+}
+
+.go-button .go-button-inner span {
+  position: relative;
+  z-index: 4;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0);
+  background-image: linear-gradient(
+    135deg,
+    rgba(25, 25, 25, 1),
+    rgba(75, 75, 75, 1)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: transform 250ms ease;
+  display: block;
+  will-change: transform;
+  text-shadow: rgba(0, 0, 0, 0.1) 0 0 0.1em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.go-button:hover .go-button-inner span {
+  transform: scale(0.975);
+}
+
+.go-button:active .go-button-inner {
+  transform: scale(0.975);
+}
+
+.go-button:focus-visible {
+  outline: none;
+  box-shadow:
+    -0.15em -0.15em 0.15em -0.075em rgba(5, 5, 5, 0.25),
+    0.0375em 0.0375em 0.0675em 0 rgba(5, 5, 5, 0.1),
+    0 0 0 3px rgba(255, 255, 255, 0.35);
+}
+
+/* ===== GrowOrbit Modern Button (white pill + lift shadow) ===== */
+/* Usage: add `className="go-button-modern"` to buttons/links you want styled */
+.go-button-modern {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 999px;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 1em 2em;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  user-select: none;
+}
+
+.go-button-modern:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 2px 5px 0 0 rgba(0, 0, 0, 1);
+}
+
+.go-button-modern:active {
+  transform: translateY(2px) translateX(1px);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+}
+
+.go-button-modern:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 4px rgba(255, 0, 6, 0.25),
+    2px 5px 0 0 rgba(0, 0, 0, 1);
+}

@@ -59,24 +59,27 @@ function HeroCta() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3">
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="gap-2 rounded-xl border-white/15 bg-transparent text-white hover:bg-white/5"
-            >
-              <Link href="#contact" aria-label="Book a session">
-                Book a session <PhoneCall className="size-4" />
+            <Button asChild size="lg" variant="heroSecondary" className="p-0 bg-transparent border-0 shadow-none hover:bg-transparent">
+              <Link href="#contact" aria-label="Book a session" className="go-button" style={{ fontSize: 14, lineHeight: 1 }}>
+                <span className="go-button-outer">
+                  <span className="go-button-inner" style={{ padding: "0.9em 1.35em" }}>
+                    <span>
+                      Book a session <PhoneCall className="inline-block align-[-0.15em] ml-2 size-4" />
+                    </span>
+                  </span>
+                </span>
               </Link>
             </Button>
 
-            <Button
-              asChild
-              size="lg"
-              className="gap-2 rounded-xl bg-white text-black hover:bg-white/90"
-            >
-              <Link href="#pricing" aria-label="Purchase a plan">
-                Purchase a plan <MoveRight className="size-4" />
+            <Button asChild size="lg" variant="heroPrimary" className="p-0 bg-transparent border-0 shadow-none hover:bg-transparent">
+              <Link href="#pricing" aria-label="Purchase a plan" className="go-button" style={{ fontSize: 14, lineHeight: 1 }}>
+                <span className="go-button-outer">
+                  <span className="go-button-inner" style={{ padding: "0.9em 1.35em" }}>
+                    <span>
+                      Purchase a plan <MoveRight className="inline-block align-[-0.15em] ml-2 size-4" />
+                    </span>
+                  </span>
+                </span>
               </Link>
             </Button>
           </div>
@@ -159,13 +162,8 @@ export default function OrbitLanding() {
   const circlePathId = `orbit-circle-${uid}`;
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-[#141011] font-sans selection:bg-primary selection:text-white">
-      {/* Background grid */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,0,6,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,0,6,0.06)_1px,transparent_1px)] bg-[size:4rem_4rem]"
-        aria-hidden
-      />
-
+    // Background wrapper moved to `src/app/layout.tsx` so it applies to Navbar + whole site
+    <div className="relative w-full">
       <main className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col items-center justify-center px-4 pb-32 pt-40 md:pb-48 md:pt-48">
         <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center justify-center text-center">
           <div className="flex w-full flex-col items-center space-y-2 md:space-y-4">

@@ -67,10 +67,22 @@ export default async function RootLayout({
     >
       <body className="min-h-screen bg-black">
         <ClerkProvider>
-          <Navbar />
-          <div style={{ marginTop: 100 }} />
-          {children}
-          <Footer />
+          {/* Site-wide background wrapper (applies to Navbar + all pages + Footer) */}
+          <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-[#141011] font-sans selection:bg-primary selection:text-white">
+            {/* Background grid */}
+            <div
+              className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,0,6,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,0,6,0.06)_1px,transparent_1px)] bg-[size:4rem_4rem]"
+              aria-hidden
+            />
+
+            <Navbar />
+            <div style={{ marginTop: 100 }} />
+
+            {/* Content above the background grid */}
+            <div className="relative z-10 flex-1">{children}</div>
+
+            <Footer />
+          </div>
         </ClerkProvider>
       </body>
     </html>
