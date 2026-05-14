@@ -72,11 +72,20 @@ function HeroCta() {
             </Button>
 
             <Button asChild size="lg" variant="heroPrimary" className="p-0 bg-transparent border-0 shadow-none hover:bg-transparent">
-              <Link href="#pricing" aria-label="Purchase a plan" className="go-button" style={{ fontSize: 14, lineHeight: 1 }}>
+              <Link
+                href="#pricing"
+                aria-label="Purchase a plan"
+                className="go-button"
+                style={{ fontSize: 14, lineHeight: 1 }}
+              >
                 <span className="go-button-outer">
-                  <span className="go-button-inner" style={{ padding: "0.9em 1.35em" }}>
+                  <span
+                    className="go-button-inner"
+                    style={{ padding: "0.9em 1.35em", backgroundColor: "#ff0006", color: "#ffffff" }}
+                  >
                     <span>
-                      Purchase a plan <MoveRight className="inline-block align-[-0.15em] ml-2 size-4" />
+                      Purchase a plan{" "}
+                      <MoveRight className="inline-block align-[-0.15em] ml-2 size-4" />
                     </span>
                   </span>
                 </span>
@@ -222,6 +231,88 @@ export default function OrbitLanding() {
       </main>
 
       <HeroCta />
+
+      <div
+        style={{
+          padding: 120,
+        }}
+      >
+        <div className="flex w-full justify-center">
+          <h1
+            className="marginTop:20 m-0 p-0 text-[clamp(1.5rem,4vw,80px)] font-black uppercase leading-[0.95] tracking-tighter text-white"
+            style={{
+              fontFamily: '"Arial Black", Impact, system-ui, sans-serif',
+              textShadow: heroShadow,
+               marginTop: 10,
+            }}
+          >
+            Focus on your business
+          </h1>
+        </div>
+
+        <div className="flex w-full justify-center">
+          <h1
+            className="m-1 p-10 text-[clamp(1.5rem,8vw,80px)] font-black uppercase leading-[0.85] tracking-tighter text-primary"
+            style={{
+              fontFamily: '"Arial Black", Impact, system-ui, sans-serif',
+              textShadow: heroShadow,
+              
+            }}
+          >
+            while we drive 
+          </h1>
+
+          
+         </div>
+
+        <div className="flex w-full flex-col items-center justify-center gap-6 md:flex-row">
+          <h1
+            className="m-1 p-10 text-[clamp(1.5rem,8vw,80px)] font-black uppercase leading-[0.85] tracking-tighter text-primary"
+            style={{
+              fontFamily: '"Arial Black", Impact, system-ui, sans-serif',
+              textShadow: heroShadow,
+            }}
+          >
+            your growth.
+          </h1>
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <Button
+            asChild
+            size="lg"
+            variant="heroPrimary"
+            className="rounded-full bg-white text-red-600 shadow-[0_18px_40px_rgba(255,0,6,0.28)] border border-white/70 px-8 py-4 font-semibold tracking-wide transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(255,0,6,0.35)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-red-200"
+          >
+            <Button
+              asChild
+              size="lg"
+               
+              className="p-0 bg-white border-1 shadow-none hover:bg-red"
+
+              style={{
+                padding: 25,
+                color: "black",
+                marginTop: 60,
+                
+                width:230
+              }}
+            >
+              <Link
+              href="#contact"
+              aria-label="Join our Growth Team"
+              className="learn-more"
+              >
+              <span className="uppercase tracking-[0.18em]">Join Us</span>
+               
+              </Link>
+            </Button>
+          </Button>
+        </div>
+
+
+   
+      </div>
 
       <section className="relative z-10 flex w-full justify-center">
         <ContainerScroll titleComponent={<></>}>
