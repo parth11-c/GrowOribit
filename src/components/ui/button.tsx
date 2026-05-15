@@ -18,7 +18,7 @@ const buttonVariants = cva(
 
         // Opt-in premium variants (not global). Use on hero/CTA buttons.
         heroPrimary:
-          "relative overflow-hidden rounded-full border border-white/25 bg-white text-black shadow-[0_16px_50px_rgba(0,0,0,0.38),0_1px_0_rgba(255,255,255,0.22)_inset] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-[0_24px_70px_rgba(0,0,0,0.48),0_1px_0_rgba(255,255,255,0.22)_inset] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
+          "relative overflow-hidden rounded-full border border-white/25 bg-white text-black shadow-[0_16px_50px_rgba(0,0,0,0.38),0_1px_0_rgba(255,255,255,0.22)_inset] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/90 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
         heroSecondary:
           "relative overflow-hidden rounded-full border border-white/20 bg-white/10 text-white/95 shadow-[0_20px_50px_rgba(0,0,0,0.45),0_1px_0_rgba(255,255,255,0.08)_inset] backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15 hover:text-white active:translate-y-0 focus-visible:ring-2 focus-visible:ring-[rgba(255,0,6,0.45)] focus-visible:ring-offset-2 focus-visible:ring-offset-black",
       },

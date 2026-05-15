@@ -8,7 +8,6 @@ import { Show, UserButton } from "@clerk/nextjs";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
-  { name: "Portfolio", href: "/portfolio" },
   { name: "About", href: "/about" },
   { name: "Pricing", href: "/pricing" },
   { name: "Contact Us", href: "/contact us" },
