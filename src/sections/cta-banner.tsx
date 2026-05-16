@@ -14,7 +14,6 @@ export default function CtaBanner() {
             <div className="relative rounded-3xl overflow-hidden bg-white">
               {/* Soft pink wash on white */}
               <div className="absolute inset-0 bg-gradient-to-br from-blush/90 via-white to-blush-deep/50 pointer-events-none" />
-              <div className="absolute inset-0 bg-grid opacity-[0.35] pointer-events-none" />
               <div className="absolute top-0 right-0 w-[380px] h-[380px] rounded-full bg-primary/[0.07] blur-[100px] pointer-events-none" />
               <div className="absolute bottom-0 left-0 w-[280px] h-[280px] rounded-full bg-accent-light/40 blur-[90px] pointer-events-none" />
 

@@ -6,11 +6,11 @@ import { Menu, X, Rocket } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Services", href: "/services" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#cta" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {

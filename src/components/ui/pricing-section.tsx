@@ -43,7 +43,7 @@ interface PricingCardProps {
 const pricingData: PricingCardProps[] = [
   {
     title: "Basic",
-    price: "$29/month",
+    price: "₹9/month",
     description: "Perfect for small businesses and individuals.",
     features: ["3 Pages", "Basic SEO", "Email Support", "Responsive Design"],
     cta: "Choose Basic",
@@ -51,7 +51,7 @@ const pricingData: PricingCardProps[] = [
   },
   {
     title: "Standard",
-    price: "$59/month",
+    price: "₹9/month",
     description: "Best for growing businesses with more needs.",
     features: ["10 Pages", "Advanced SEO", "CMS Integration", "24/7 Chat Support"],
     cta: "Choose Standard",
@@ -60,7 +60,7 @@ const pricingData: PricingCardProps[] = [
   },
   {
     title: "Pro",
-    price: "$99/month",
+    price: "₹9/month",
     description: "Ideal for larger businesses that need scalability.",
     features: ["Unlimited Pages", "E-commerce Integration", "Priority Support", "Custom API Integration"],
     cta: "Choose Pro",
@@ -91,14 +91,20 @@ export default function Pricing() {
 
 function PricingCard({ plan }: { plan: PricingCardProps }) {
   return (
-    <div
+    <div 
+
+   style={{
+      padding:30
+    }}    
       className={cn(
         "flex h-full flex-col rounded-xl border border-white/10 bg-white/5 p-6 text-left text-white backdrop-blur-sm",
         plan.featured && "border-primary/60 shadow-lg shadow-primary/10 ring-1 ring-primary/20"
       )}
       aria-label={`${plan.title} plan`}
     >
-      <div className="text-center">
+      <div className="text-center"    style={{
+      padding:30
+    }}>
         <div className="inline-flex items-center justify-center gap-2">
           <Badge variant={plan.featured ? "default" : "secondary"}>{plan.title}</Badge>
           {plan.featured && (
@@ -109,7 +115,9 @@ function PricingCard({ plan }: { plan: PricingCardProps }) {
         {plan.description && <p className="text-sm leading-relaxed text-white/70">{plan.description}</p>}
       </div>
 
-      <div className="my-5 border-t border-white/10" />
+      <div    style={{
+      padding:30
+    }} className="my-5 border-t border-white/10" />
 
       <ul className="space-y-3">
         {plan.features.map((feature) => (

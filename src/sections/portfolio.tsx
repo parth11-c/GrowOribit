@@ -133,7 +133,6 @@ function PortfolioCard({
         className={`relative h-48 bg-gradient-to-br ${project.color} flex items-center justify-center overflow-hidden`}
       >
         {/* Decorative elements */}
-        <div className="absolute inset-0 bg-grid opacity-30" />
         <div
           className={`w-16 h-16 rounded-2xl ${project.accent} opacity-20 blur-xl`}
         />

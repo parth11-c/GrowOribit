@@ -10,7 +10,7 @@ const navLinks = [
   { name: "Services", href: "/services" },
   { name: "About", href: "/about" },
   { name: "Pricing", href: "/pricing" },
-  { name: "Contact Us", href: "/contact us" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 export function Navbar() {
@@ -28,7 +28,7 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/80 backdrop-blur-lg",
+        "fixed top-0 left-0 right-0 z-50 bg-black transition-all duration-300",
         isScrolled ? "border-b border-white/10" : ""
       )}
     >

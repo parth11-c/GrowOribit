@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { MoveRight, PhoneCall } from "lucide-react";
 import { ContainerScroll } from "@/components/ui/container-scroll";
@@ -26,9 +27,9 @@ function HeroCta() {
   }, [titles.length]);
 
   return (
-    <section className="relative z-10 w-full mt-16 md:mt-24">
+    <section className="relative z-10 w-full">
       <div className="mx-auto w-full max-w-[1440px] px-4">
-        <div className="flex flex-col items-center justify-center gap-8 py-12 md:py-16 text-center">
+        <div className="flex flex-col items-center justify-center gap-7 py-12 text-center md:py-16">
           <div className="flex flex-col gap-4">
             <h2 className="text-5xl md:text-7xl font-medium tracking-tighter">
               <span className="text-white">This is something</span>
@@ -58,8 +59,8 @@ function HeroCta() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Button asChild size="lg" variant="heroSecondary" className="p-0 bg-transparent border-0 shadow-none hover:bg-transparent">
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Button asChild size="lg" variant="ghost" className="p-0 bg-transparent border-0 shadow-none hover:bg-transparent">
               <Link href="#contact" aria-label="Book a session" className="go-button" style={{ fontSize: 14, lineHeight: 1 }}>
                 <span className="go-button-outer">
                   <span className="go-button-inner" style={{ padding: "0.9em 1.35em" }}>
@@ -71,7 +72,7 @@ function HeroCta() {
               </Link>
             </Button>
 
-            <Button asChild size="lg" variant="heroPrimary" className="p-0 bg-transparent border-0 shadow-none hover:bg-transparent">
+            <Button asChild size="lg" variant="ghost" className="p-0 bg-transparent border-0 shadow-none hover:bg-transparent">
               <Link
                 href="#pricing"
                 aria-label="Purchase a plan"
@@ -94,7 +95,7 @@ function HeroCta() {
           </div>
 
           {/* subtle separator */}
-          <div className="mt-2 h-px w-full max-w-3xl bg-white/10" />
+          <div className="h-px w-full max-w-3xl bg-white/10" />
         </div>
       </div>
     </section>
@@ -173,16 +174,15 @@ export default function OrbitLanding() {
   return (
     // Background wrapper moved to `src/app/layout.tsx` so it applies to Navbar + whole site
     <div className="relative w-full">
-      <main className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col items-center justify-center px-4 pb-32 pt-40 md:pb-48 md:pt-48">
+      <main className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-[1440px] flex-1 flex-col items-center justify-center px-4 py-14 md:py-20">
         <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center justify-center text-center">
-          <div className="flex w-full flex-col items-center space-y-2 md:space-y-4">
+          <div className="flex w-full flex-col items-center gap-1 md:gap-2">
             <div className="flex w-full justify-center">
               <h1
-                className="m-3 p-10 text-[clamp(4.5rem,12vw,160px)] font-black uppercase leading-[0.85] tracking-tighter text-primary"
+                className="text-[clamp(4rem,11vw,150px)] font-black uppercase leading-[0.82] tracking-tighter text-primary"
                 style={{
                   fontFamily: '"Arial Black", Impact, system-ui, sans-serif',
                   textShadow: heroShadow,
-                  marginTop: 10,
                 }}
               >
                 We
@@ -191,7 +191,7 @@ export default function OrbitLanding() {
 
             <div className="flex w-full justify-center">
               <h1
-                className="m-0 p-0 text-[clamp(5rem,15vw,220px)] font-black uppercase leading-[0.85] tracking-tighter text-white"
+                className="text-[clamp(5rem,15vw,200px)] font-black uppercase leading-[0.82] tracking-tighter text-white"
                 style={{
                   fontFamily: '"Arial Black", Impact, system-ui, sans-serif',
                   textShadow: heroShadow,
@@ -203,7 +203,7 @@ export default function OrbitLanding() {
 
             <div className="flex w-full justify-center">
               <h1
-                className="m-0 p-0 text-[clamp(4.5rem,12vw,160px)] font-black uppercase leading-[0.85] tracking-tighter text-white"
+                className="text-[clamp(4rem,11vw,150px)] font-black uppercase leading-[0.82] tracking-tighter text-white"
                 style={{
                   fontFamily: '"Arial Black", Impact, system-ui, sans-serif',
                   textShadow: heroShadow,
@@ -214,15 +214,15 @@ export default function OrbitLanding() {
             </div>
           </div>
 
-          <div className="relative z-20 mt-10 flex w-full flex-col items-center justify-center gap-8 md:mt-14 md:gap-10">
-            <div className="flex items-center justify-center gap-4 md:gap-12 lg:gap-20">
-              <div className="h-20 w-20 shrink-0 md:h-28 md:w-32">
+          <div className="relative z-20 mt-8 flex w-full flex-col items-center justify-center gap-6 md:mt-10">
+            <div className="flex items-center justify-center gap-5 md:gap-12 lg:gap-16">
+              <div className="h-16 w-16 shrink-0 md:h-24 md:w-28">
                 <ArrowAccentLeft />
               </div>
               <div className="shrink-0">
                 <CircularBadge pathId={circlePathId} />
               </div>
-              <div className="h-20 w-20 shrink-0 md:h-28 md:w-32">
+              <div className="h-16 w-16 shrink-0 md:h-24 md:w-28">
                 <ArrowAccentRight />
               </div>
             </div>
@@ -232,14 +232,10 @@ export default function OrbitLanding() {
 
       <HeroCta />
 
-      <div
-        style={{
-          padding: 120,
-        }}
-      >
-        <div className="flex w-full flex-col items-center justify-center text-center gap-2">
+      <section className="px-4 py-16 md:py-24">
+        <div className="mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-2 text-center">
           <h1
-            className="m-0 p-0 text-[clamp(1.5rem,4vw,80px)] font-black uppercase leading-[0.95] tracking-tighter text-white text-center"
+            className="text-center text-[clamp(2.5rem,5vw,76px)] font-black uppercase leading-[0.9] tracking-tighter text-white"
             style={{
               fontFamily: '"Arial Black", Impact, system-ui, sans-serif',
               textShadow: heroShadow,
@@ -249,7 +245,7 @@ export default function OrbitLanding() {
           </h1>
 
           <h1
-            className="m-0 p-0 text-[clamp(1.5rem,8vw,80px)] font-black uppercase leading-[0.85] tracking-tighter text-primary text-center"
+            className="text-center text-[clamp(2.5rem,6vw,82px)] font-black uppercase leading-[0.85] tracking-tighter text-primary"
             style={{
               fontFamily: '"Arial Black", Impact, system-ui, sans-serif',
               textShadow: heroShadow,
@@ -259,7 +255,7 @@ export default function OrbitLanding() {
           </h1>
 
           <h1
-            className="m-0 p-0 text-[clamp(1.5rem,8vw,80px)] font-black uppercase leading-[0.85] tracking-tighter text-primary text-center"
+            className="text-center text-[clamp(2.5rem,6vw,82px)] font-black uppercase leading-[0.85] tracking-tighter text-primary"
             style={{
               fontFamily: '"Arial Black", Impact, system-ui, sans-serif',
               textShadow: heroShadow,
@@ -271,17 +267,11 @@ export default function OrbitLanding() {
 
         <div className="mt-10 flex justify-center">
           <Button
-
-            asChild size="lg" variant="heroPrimary" className="p-0 bg-transparent border-0 shadow-none hover:bg-transparent"
-            style={{
-              padding: 25,
-              color: "black",
-              marginTop: 60,
-
-            }}
+            asChild
+            size="lg"
+            variant="ghost"
+            className="border-0 bg-transparent p-0 shadow-none hover:bg-transparent"
           >
-
-
             <Link
               href="#contact"
               aria-label="Join our Growth Team"
@@ -293,7 +283,7 @@ export default function OrbitLanding() {
                   className="go-button-inner"
                   style={{ padding: "0.9em 1.35em", backgroundColor: "#ff0006", color: "#ffffff" }}
                 >
-                  <span className="uppercase tracking-[0.18em]">
+                  <span>
                     Join Us{" "}
                     <MoveRight className="inline-block align-[-0.15em] ml-2 size-4" />
                   </span>
@@ -302,14 +292,17 @@ export default function OrbitLanding() {
             </Link>
           </Button>
         </div>
-
-
-
-      </div>
+      </section>
 
       <section className="relative z-10 flex w-full justify-center">
         <ContainerScroll titleComponent={<></>}>
-          <img src="/Trade.jpg" alt="Trade" className="h-full w-full object-cover" />
+          <Image
+            src="/Trade.jpg"
+            alt="Trade"
+            width={1200}
+            height={800}
+            className="h-full w-full object-cover"
+          />
         </ContainerScroll>
       </section>
     </div>

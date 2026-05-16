@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  return <main className="min-h-screen" />;
+  return <main className="min-h-screen bg-black pt-16" />;
 }

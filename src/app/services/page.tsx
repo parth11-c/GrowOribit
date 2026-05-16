@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import ServicesSection from "@/sections/services-section";
 
 export const metadata: Metadata = {
   title: "Services | GrowOrbit",
@@ -6,5 +7,9 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
-  return <main className="min-h-screen" />;
+  return (
+    <main className="min-h-screen bg-black pt-16">
+      <ServicesSection />
+    </main>
+  );
 }

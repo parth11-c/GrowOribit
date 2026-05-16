@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function PortfolioPage() {
-  return <main className="min-h-screen" />;
+  return <main className="min-h-screen bg-black pt-16" />;
 }

@@ -9,7 +9,7 @@ import {
   Clock,
   HeartHandshake,
 } from "lucide-react";
-import { SectionWrapper, SectionHeader } from "@/components/ui/section";
+import { SectionWrapper } from "@/components/ui/section";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion-wrapper";
 
 const features = [
@@ -72,7 +72,7 @@ export default function WhyChooseUs() {
               <span className="gradient-text">Want to Win</span>
             </h2>
             <p className="text-lg text-muted leading-relaxed mb-8">
-              We don't just build products — we build growth engines. Our
+              We don&apos;t just build products — we build growth engines. Our
               approach combines creativity, technology, and strategy to deliver
               results that matter.
             </p>
@@ -98,7 +98,7 @@ export default function WhyChooseUs() {
         {/* Right Column - Feature Cards */}
         <div className="lg:w-[60%]">
           <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {features.map((feature, i) => {
+            {features.map((feature) => {
               const Icon = feature.icon;
               return (
                 <StaggerItem key={feature.title}>

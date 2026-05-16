@@ -5,6 +5,8 @@ export const metadata: Metadata = {
   description: "Flexible pricing plans for businesses of all sizes",
 };
 
-export default function PricingPage() {
-  return <main className="min-h-screen" />;
+import Pricing_04 from "@/components/ui/ruixen-pricing-04";
+
+export default function DemoOne() {
+  return <Pricing_04 />;
 }

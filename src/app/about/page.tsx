@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import AboutSection from "@/sections/about-section";
 
 export const metadata: Metadata = {
   title: "About Us | GrowOrbit",
@@ -6,5 +7,9 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return <main className="min-h-screen" />;
+  return (
+    <main className="min-h-screen bg-black pt-16">
+      <AboutSection />
+    </main>
+  );
 }
