@@ -8,7 +8,7 @@ const hasClerkEnv =
 
 export default function proxy(request: NextRequest) {
   if (!hasClerkEnv) return NextResponse.next();
-  return clerkMiddleware()(request);
+  return clerkMiddleware(request, NextResponse.next());
 }
 
 export const config = {
