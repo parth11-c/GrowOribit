@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 declare global {
@@ -14,6 +15,8 @@ type RazorpayCheckoutButtonProps = {
   currency?: string;
   receipt?: string;
   planTitle: string;
+  planId: string;
+  billPlan: "monthly" | "annually";
   buttonText: string;
   className?: string;
   disabled?: boolean;
@@ -101,7 +104,10 @@ export function RazorpayCheckoutButton({
   buttonText,
   className,
   disabled = false,
+  planId,
+  billPlan,
 }: RazorpayCheckoutButtonProps) {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
   const fallbackReceipt = useId().replace(/:/g, "");
@@ -184,7 +190,12 @@ export function RazorpayCheckoutButton({
               throw new Error(verifyData.error ?? "Payment verification failed.");
             }
 
-            setStatus("Payment verified successfully.");
+            // Redirect to success page with plan details
+            const params = new URLSearchParams({
+              plan: planId,
+              billing: billPlan,
+            });
+            router.push(`/success?${params.toString()}`);
           } catch (error) {
             setStatus(
               error instanceof Error ? error.message : "Payment verification failed.",
