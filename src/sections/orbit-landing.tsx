@@ -61,7 +61,7 @@ function HeroCta() {
 
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" variant="ghost" className="p-0 bg-transparent border-0 shadow-none hover:bg-transparent">
-              <Link href="#contact" aria-label="Book a session" className="go-button" style={{ fontSize: 14, lineHeight: 1 }}>
+              <Link href="/contact" aria-label="Book a session" className="go-button" style={{ fontSize: 14, lineHeight: 1 }}>
                 <span className="go-button-outer">
                   <span className="go-button-inner" style={{ padding: "0.9em 1.35em" }}>
                     <span>
@@ -74,7 +74,7 @@ function HeroCta() {
 
             <Button asChild size="lg" variant="ghost" className="p-0 bg-transparent border-0 shadow-none hover:bg-transparent">
               <Link
-                href="#pricing"
+                href="/pricing"
                 aria-label="Purchase a plan"
                 className="go-button"
                 style={{ fontSize: 14, lineHeight: 1 }}
@@ -273,7 +273,7 @@ export default function OrbitLanding() {
             className="border-0 bg-transparent p-0 shadow-none hover:bg-transparent"
           >
             <Link
-              href="#contact"
+              href="/pricing"
               aria-label="Join our Growth Team"
               className="go-button"
               style={{ fontSize: 14, lineHeight: 1 }}
