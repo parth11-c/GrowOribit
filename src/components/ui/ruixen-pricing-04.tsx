@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import NumberFlow from "@number-flow/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CheckIcon } from "lucide-react";
-import { useId, useState } from "react";
+import { useId, useState, useEffect } from "react";
 import { RazorpayCheckoutButton } from "@/components/payments/razorpay-checkout-button";
 
 type Plan = "monthly" | "annually";
@@ -122,6 +122,12 @@ export default function Pricing_04() {
     const { data: clerkPlans = [] } = usePlans();
     const [razorpayReady, setRazorpayReady] = useState(false);
     const [razorpayLoadError, setRazorpayLoadError] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (typeof window !== "undefined" && !!window.Razorpay) {
+            setRazorpayReady(true);
+        }
+    }, []);
 
     const handleSwitch = () => {
         setBillPlan((prev) => (prev === "monthly" ? "annually" : "monthly"));
